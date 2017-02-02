@@ -3,19 +3,33 @@ class FSM {
      * Creates new FSM instance.
      * @param config
      */
-    constructor(config) {}
+    constructor(config) {
+        if(config != undefined){
+        this.config=config;}
+        else{
+            throw new Error;
+        }
+    }
 
     /**
      * Returns active state.
      * @returns {String}
      */
-    getState() {}
+    getState() {
+        return this.config.initial;
+    }
 
     /**
      * Goes to specified state.
      * @param state
      */
-    changeState(state) {}
+    changeState(state) {
+        if(this.config.states[state]){
+        this.config.initial=state;}else{
+            throw new Error;
+        }
+
+    }
 
     /**
      * Changes state according to event transition rules.
