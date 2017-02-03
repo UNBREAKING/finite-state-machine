@@ -120,7 +120,7 @@ class FSM {
      * Clears transition history
      */
     clearHistory() {
-   
+      this.reset();
     }
 }
 
