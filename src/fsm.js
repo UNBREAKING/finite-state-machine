@@ -4,7 +4,7 @@ class FSM {
      * @param config
      */
     constructor(config) {
-        if(config != undefined){
+        if(config){
         this.config=config;}
         else{
             throw new Error;
@@ -31,7 +31,7 @@ class FSM {
             this.lastState.push(this.state);
             this.nextState=[];
             this.state=state;}else{
-            throw new Error;
+            throw new Error();
         }
 
     }
@@ -46,7 +46,7 @@ class FSM {
             this.lastState.push(this.state);
             this.state=this.config.states[this.state].transitions[event];}
         else{
-            throw new Error;
+            throw new Error();
         }
     }
     /**
@@ -106,8 +106,8 @@ class FSM {
      */
     redo() {
         if(this.nextState!=0){
-            this.state=this.nextState.pop();
             this.lastState.push(this.state);
+            this.state=this.nextState.pop();
             return true;
         }{
             return false;
