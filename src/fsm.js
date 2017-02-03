@@ -54,8 +54,6 @@ class FSM {
      */
     reset() {
         this.state=this.config.initial;
-        this.nextState=[];
-        this.lastState=[];
     }
 
     /**
@@ -120,7 +118,8 @@ class FSM {
      * Clears transition history
      */
     clearHistory() {
-      this.reset();
+        this.lastState=[];
+        this.nextState=[];
     }
 }
 
