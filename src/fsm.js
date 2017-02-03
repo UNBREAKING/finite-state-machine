@@ -63,22 +63,23 @@ class FSM {
      * @returns {Array}
      */
     getStates(event) {
-        var a=[];
-        var b=Object.getOwnPropertyNames(this.config.states);
-        if(event){
-            for(var i=0;i<b.length;i++){
-                var list=Object.entries(this.config.states[b[i]].transitions);
-                for (var j=0; j<list.length;j++){
-                   if(list[j][0]===event){
-                    a.push(b[i]);
+        var ArrayOfStates = Object.keys(this.config.states);
+        if (event)
+        {
+            for (var index = ArrayOfStates.length - 1; index >= 0; --index)
+            {
+                if (this.config.states[ArrayOfStates[index]].transitions[event] == undefined)
+                {
+                    ArrayOfStates.splice(index, 1);
                 }
-               }
-
             }
+            return ArrayOfStates;
 
         }
-        else{a=b;}
-        return a;
+        else
+        {
+            return ArrayOfStates;
+        }
     }
 
     /**
