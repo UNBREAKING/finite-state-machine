@@ -120,8 +120,7 @@ class FSM {
      * Clears transition history
      */
     clearHistory() {
-        this.lastState=[];
-        this.nextState=[];
+   
     }
 }
 
