@@ -54,6 +54,8 @@ class FSM {
      */
     reset() {
         this.state=this.config.initial;
+        this.nextState=[];
+        this.lastState=[];
     }
 
     /**
